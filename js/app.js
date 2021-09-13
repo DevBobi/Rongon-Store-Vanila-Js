@@ -15,16 +15,25 @@ const showProducts = (products) => {
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `
-    <div class="single-product">
-      <div>
-        <img class="product-image" src=${image}></img>
-      </div>
-      <h3>${product.title}</h3>
-      <p>Category: ${product.category}</p>
-      <p><i class="fas fa-user"></i> ${product.rating.count} <i class="fas fa-star"></i> ${product.rating.rate} </p>
-      <h2>Price: $ ${product.price}</h2>
-        <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-        <button onclick="productDetail() id="details-btn" class="btn btn-danger">Details</button>
+      <div class="single-product mx-3 mb-3">
+            <div>
+              <img class="product-image" src=${image}></img>
+            </div>
+            <div class="card-body lh">
+            <h4 class="text-break">${product.title.slice(0,40)}..</h4>
+            <p>Category: ${product.category}</p>
+            <p class="fw-normal">Rating: <span class="text-warning">${product.rating.rate}</span></p>
+            <p class="text-warning">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </p>
+            <p><i class="fas fa-user"></i> ${product.rating.count}</p>
+            <h4>Price: $ ${product.price}</h4>
+            <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn     btn-warning">add to cart</button>
+            <button onclick="productDetail() id="details-btn" class="btn btn-secondary">Details</button>
+            </div>
       </div>
       `;
     document.getElementById("all-products").appendChild(div);
