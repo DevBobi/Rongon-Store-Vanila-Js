@@ -15,22 +15,22 @@ const showProducts = (products) => {
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `
-      <div class="single-product mx-3 mb-3">
+      <div class="single-product mx-3 mb-4">
             <div>
               <img class="product-image" src=${image}></img>
             </div>
-            <div class="card-body lh">
-            <h4 class="text-break">${product.title.slice(0,40)}..</h4>
+            <div class="card-body">
+            <h5 class="text-break">${product.title.slice(0,30)}..</h5>
             <p>Category: ${product.category}</p>
-            <p class="fw-normal">Rating: <span class="text-warning">${product.rating.rate}</span></p>
+            <p class="fw-normal fw-light">Rating: <span class="text-warning">${product.rating.rate} </span class="">( <i class="fas fa-user"></i> ${product.rating.count} )</p>
             <p class="text-warning">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </p>
-            <p><i class="fas fa-user"></i> ${product.rating.count}</p>
-            <h4>Price: $ ${product.price}</h4>
+            <p></p>
+            <h4>Price: <span class="text-danger">$ ${product.price}</span></h4>
             <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn     btn-warning">add to cart</button>
             <button onclick="productDetail() id="details-btn" class="btn btn-secondary">Details</button>
             </div>
